@@ -35,7 +35,7 @@ void init(struct table *t, int n, int m, int max_value) {
 }
 
 void print_row(struct row *r) {
-    printf("%d.%d: %d, %d\n", r->side, r->id, r->a, r->b);
+    printf("%d.%d: %d, %d\n", r->sheet, r->id, r->a, r->b);
 }
 
 void print_table(struct table *t) {
@@ -82,6 +82,7 @@ void print_filtered(struct table *t) {
         int first = 1;
         while (j < t->n_rows && compare_rows(t->rows[i], t->rows[j]) == 0) {
             if (first) {
+                printf("\n");
                 print_row(t->rows[i]);
                 first = 0;
             }
@@ -107,11 +108,11 @@ int main(int argc, char *argv[]) {
     }
     struct table *t0 = malloc(sizeof(struct table));
     init(t0, n, m, max_value); // TODO: parse csv files instead
-    printf("initialised:\n\n");
-    print_table(t0);
+    //printf("initialised:\n\n");
+    //print_table(t0);
     qsort(t0->rows, t0->n_rows, sizeof(struct row *), compare);
-    printf("sorted:\n\n");
-    print_table(t0);
-    printf("filtered:\n\n");
+    //printf("sorted:\n\n");
+    //print_table(t0);
+    printf("filtered:\n");
     print_filtered(t0);
 }
