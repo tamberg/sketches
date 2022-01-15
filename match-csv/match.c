@@ -1,6 +1,6 @@
 // licensed under https://tamberg.mit-license.org/
 // for https://twitter.com/HikingHack/status/1481353359294701570
-// assumes csv files with 1 header line, 2+ values per line, line ending '\r\n'
+// assumes csv files with 1 header line, 2+ values per line, line ending "\r\n"
 
 // $ gcc -o match match.c
 // $ ./match file0.csv file1.csv
@@ -13,7 +13,7 @@
 
 // parse
 
-// csv-file = line { '\r\n' line } 
+// csv-file = line { '\r' '\n' line } 
 // line = value { ',' value } 
 // value = digit { digit }
 // digit = 0..9
