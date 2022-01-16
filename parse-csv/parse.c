@@ -9,7 +9,7 @@
 #include <unistd.h>
 #include <assert.h>
 
-// csv-file = line { '\r\n' line } 
+// csv-file = line { '\r' '\n' line } 
 // line = value { ',' value } 
 // value = digit { digit }
 // digit = 0..9
