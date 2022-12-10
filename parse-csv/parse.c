@@ -12,7 +12,7 @@
 // csv-file = line { '\r' '\n' line } 
 // line = value { ',' value } 
 // value = digit { digit }
-// digit = 0..9
+// digit = '0'..'9'
 
 struct value {
     int num;
