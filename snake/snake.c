@@ -2,6 +2,7 @@
 
 // $ gcc -o snake snake.c
 // $ stty -icanon -echo; ./snake
+// $ stty sane # fix terminal after game
 
 #include <stdio.h>
 #include <stdlib.h>
