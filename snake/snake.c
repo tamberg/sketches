@@ -8,9 +8,9 @@
 #define COLS 6
 
 #define ARROW_UP 'w'
-#define ARROW_DOWN 66 's'
-#define ARROW_LEFT 68 'a'
-#define ARROW_RIGHT 67 'd'
+#define ARROW_DOWN 's'
+#define ARROW_LEFT 'a'
+#define ARROW_RIGHT 'd'
 
 // MacOS arrow keys (hack)
 //#define ARROW_UP 65
