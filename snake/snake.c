@@ -7,15 +7,16 @@
 #define ROWS 4
 #define COLS 6
 
-//#define ARROW_UP 'w'
-//#define ARROW_DOWN 66 's'
-//#define ARROW_LEFT 68 'a'
-//#define ARROW_RIGHT 67 'd'
+#define ARROW_UP 'w'
+#define ARROW_DOWN 66 's'
+#define ARROW_LEFT 68 'a'
+#define ARROW_RIGHT 67 'd'
 
-#define ARROW_UP 65
-#define ARROW_DOWN 66
-#define ARROW_LEFT 68
-#define ARROW_RIGHT 67
+// MacOS arrow key hack
+//#define ARROW_UP 65
+//#define ARROW_DOWN 66
+//#define ARROW_LEFT 68
+//#define ARROW_RIGHT 67
 
 char display[COLS][ROWS];
 
@@ -120,7 +121,7 @@ void draw_thing(struct point *thing) {
     display[thing->x][thing->y] = '#';
 }
 
-void show_display() {
+void show_display() { // TODO: redraw in place
     for (int y = 0; y < ROWS; y++) {
         for (int x = 0; x < COLS; x++) {
             printf("%c", display[x][y]);
@@ -131,6 +132,7 @@ void show_display() {
 }
 
 int main(void) {
+    // TODO: enable cbreak mode
     struct point *snake = random_point();
     struct point *thing = move_thing(random_point(), snake);
     int done = 0;
