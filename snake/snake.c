@@ -1,7 +1,7 @@
 // snake - https://x.com/itsfoss2/status/1796244297336914261
 
 // $ gcc -o snake snake.c
-// $ stty -icanon; stty -echo; ./snake
+// $ stty -icanon -echo; ./snake
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -138,8 +138,8 @@ void show_display() { // TODO: redraw in place
 
 int main(void) {
     // TODO: enable cbreak mode
-    printf("\npress '%c' = UP, '%c' = DOWN, '%c' = LEFT, '%c' = RIGHT, "
-        "then ENTER\n\n", ARROW_UP, ARROW_DOWN, ARROW_LEFT, ARROW_RIGHT);
+    printf("\npress '%c' = UP, '%c' = DOWN, '%c' = LEFT, '%c' = RIGHT\n\n",
+        ARROW_UP, ARROW_DOWN, ARROW_LEFT, ARROW_RIGHT);
     struct point *snake = random_point();
     struct point *token = move_token(random_point(), snake);
     int done = 0;
