@@ -1,7 +1,7 @@
 // snake - https://x.com/itsfoss2/status/1796244297336914261
 
 // $ gcc -o snake snake.c
-// $ ./snake
+// $ stty -icanon; stty -echo; ./snake
 
 #include <stdio.h>
 #include <stdlib.h>
