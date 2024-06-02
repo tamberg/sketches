@@ -169,6 +169,6 @@ int main(void) {
             }
         }
     }
-    printf("\ngame over, score = %d\n", score);
+    printf("game over, score = %d\n", score);
     return 0;
 }
