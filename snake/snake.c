@@ -12,7 +12,7 @@
 #define ARROW_LEFT 68 'a'
 #define ARROW_RIGHT 67 'd'
 
-// MacOS arrow key hack
+// MacOS arrow keys (hack)
 //#define ARROW_UP 65
 //#define ARROW_DOWN 66
 //#define ARROW_LEFT 68
@@ -96,7 +96,9 @@ struct point *move_thing(struct point *thing, struct point *snake) {
     do {
         free(p);
         p = random_point();
-    } while (has_collision(p, thing) || has_collision(p, snake)); // TODO: detect win
+    } while (
+        has_collision(p, thing) || 
+        has_collision(p, snake)); // TODO: detect win
     free(thing);
     return p;
 }
@@ -138,18 +140,21 @@ int main(void) {
     int done = 0;
     int score = 0;
     while (!done) {
+        // show current state
         clear_display();
         draw_thing(thing);
         draw_snake(snake);
         show_display();
 
+        // read user input
         int ch;
         do {
             ch = getchar();
-            //printf("%d\n", ch);
-        } while ((ch != ARROW_UP) && (ch != ARROW_DOWN) && 
+        } while (
+            (ch != ARROW_UP) && (ch != ARROW_DOWN) && 
             (ch != ARROW_LEFT) && (ch != ARROW_RIGHT));
 
+        // update state
         snake = move_snake_head(snake, ch);
         done = has_collision(snake, snake->next);
         int scored = has_collision(snake, thing);
