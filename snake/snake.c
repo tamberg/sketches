@@ -135,6 +135,8 @@ void show_display() { // TODO: redraw in place
 
 int main(void) {
     // TODO: enable cbreak mode
+    printf("\npress '%c' = UP, '%c' = DOWN, '%c' = LEFT, '%c' = RIGHT, "
+        "then ENTER\n\n", ARROW_UP, ARROW_DOWN, ARROW_LEFT, ARROW_RIGHT);
     struct point *snake = random_point();
     struct point *thing = move_thing(random_point(), snake);
     int done = 0;
@@ -167,6 +169,6 @@ int main(void) {
             }
         }
     }
-    printf("game over, score = %d\n", score);
+    printf("\ngame over, score = %d\n", score);
     return 0;
 }
