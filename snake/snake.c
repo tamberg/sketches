@@ -138,7 +138,7 @@ void show_display() { // TODO: redraw in place
 
 int main(void) {
     // TODO: enable cbreak mode
-    printf("\npress '%c' = UP, '%c' = DOWN, '%c' = LEFT, '%c' = RIGHT\n\n",
+    printf("\npress '%c' = UP, '%c' = DOWN, '%c' = LEFT or '%c' = RIGHT\n\n",
         ARROW_UP, ARROW_DOWN, ARROW_LEFT, ARROW_RIGHT);
     struct point *snake = random_point();
     struct point *token = move_token(random_point(), snake);
