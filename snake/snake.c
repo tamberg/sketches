@@ -94,15 +94,15 @@ void drag_snake_tail(struct point *head) {
     }
 }
 
-struct point *move_thing(struct point *thing, struct point *snake) {
+struct point *move_token(struct point *token, struct point *snake) {
     struct point *p = NULL;
     do {
         free(p);
         p = random_point();
     } while (
-        has_collision(p, thing) || 
+        has_collision(p, token) || 
         has_collision(p, snake)); // TODO: detect win
-    free(thing);
+    free(token);
     return p;
 }
 
@@ -121,9 +121,9 @@ void draw_snake(struct point *head) {
     }
 }
 
-void draw_thing(struct point *thing) {
-    assert(thing != NULL);
-    display[thing->x][thing->y] = '#';
+void draw_token(struct point *token) {
+    assert(token != NULL);
+    display[token->x][token->y] = '#';
 }
 
 void show_display() { // TODO: redraw in place
@@ -141,13 +141,13 @@ int main(void) {
     printf("\npress '%c' = UP, '%c' = DOWN, '%c' = LEFT, '%c' = RIGHT, "
         "then ENTER\n\n", ARROW_UP, ARROW_DOWN, ARROW_LEFT, ARROW_RIGHT);
     struct point *snake = random_point();
-    struct point *thing = move_thing(random_point(), snake);
+    struct point *token = move_token(random_point(), snake);
     int done = 0;
     int score = 0;
     while (!done) {
         // show current state
         clear_display();
-        draw_thing(thing);
+        draw_token(token);
         draw_snake(snake);
         show_display();
 
@@ -162,13 +162,13 @@ int main(void) {
         // update state
         snake = move_snake_head(snake, ch);
         done = has_collision(snake, snake->next);
-        int scored = has_collision(snake, thing);
+        int scored = has_collision(snake, token);
         if (!done) {
             if (!scored) {
                 drag_snake_tail(snake);
             } else {
                 score++;
-                thing = move_thing(thing, snake);
+                token = move_token(token, snake);
             }
         }
     }
