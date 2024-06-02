@@ -42,14 +42,14 @@ struct point *random_point() {
 
 int has_collision(struct point *p, struct point *list) {
     assert(p != NULL);
-    int res = 0;
-    while (!res && list != NULL) {
-        res = 
+    int has = 0;
+    while (!has && list != NULL) {
+        has = 
             (p->x == list->x) && 
             (p->y == list->y);
         list = list->next;
     }
-    return res;
+    return has;
 }
 
 // https://stackoverflow.com/a/19288271
