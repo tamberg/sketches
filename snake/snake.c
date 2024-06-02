@@ -151,7 +151,7 @@ int main(void) {
         // read user input
         int ch;
         do {
-            ch = getchar();
+            ch = getchar(); // TODO: timeout
         } while (
             (ch != ARROW_UP) && (ch != ARROW_DOWN) && 
             (ch != ARROW_LEFT) && (ch != ARROW_RIGHT));
