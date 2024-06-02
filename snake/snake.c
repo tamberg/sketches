@@ -76,7 +76,7 @@ struct point *move_snake_head(struct point *head, char dir) {
     } else if (dir == ARROW_DOWN) {
         p->y = mod(p->y + 1, ROWS);
     } else {
-        assert(0); // invalid direction
+        assert(0); // unknown direction
     }
     p->next = head;
     return p;
