@@ -17,10 +17,10 @@
 #define ARROW_RIGHT 'd'
 
 // MacOS arrow keys (hack)
-//#define ARROW_UP 65
-//#define ARROW_DOWN 66
-//#define ARROW_LEFT 68
-//#define ARROW_RIGHT 67
+//#define ARROW_UP 'A'
+//#define ARROW_DOWN 'B'
+//#define ARROW_LEFT 'D'
+//#define ARROW_RIGHT 'C'
 
 char display[COLS][ROWS];
 
