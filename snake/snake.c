@@ -6,6 +6,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include <assert.h>
 
 #define ROWS 4
@@ -96,13 +97,19 @@ void drag_snake_tail(struct point *head) {
 }
 
 struct point *move_token(struct point *token, struct point *snake) {
+    time_t t0 = time(NULL);
     struct point *p = NULL;
     do {
         free(p);
-        p = random_point();
+        if (time(NULL) - t0 < 3) {
+            p = random_point();
+        } else { // timeout
+            p = NULL;
+        }
     } while (
-        has_collision(p, token) || 
-        has_collision(p, snake)); // TODO: detect win
+        (p != NULL) &&
+        (has_collision(p, token) || 
+         has_collision(p, snake)));
     free(token);
     return p;
 }
@@ -170,9 +177,10 @@ int main(void) {
             } else {
                 score++;
                 token = move_token(token, snake);
+                done = token == NULL; // you win
             }
         }
     }
-    printf("game over, score = %d\n", score);
+    printf("%s, score = %d\n", token == NULL ? "you win" : "game over", score);
     return 0;
 }
