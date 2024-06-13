@@ -107,9 +107,9 @@ struct point *move_token(struct point *token, struct point *snake) {
             p = NULL;
         }
     } while (
-        (p != NULL) &&
-        (has_collision(p, token) || 
-         has_collision(p, snake)));
+        p != NULL && (
+        has_collision(p, token) || 
+        has_collision(p, snake)));
     free(token);
     return p;
 }
