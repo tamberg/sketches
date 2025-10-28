@@ -1,0 +1,69 @@
+// licensed under https://tamberg.mit-license.org/
+
+// picks a line each from n files 
+// with newline terminated lines
+// to generate new combinations
+
+// $ gcc -o idea idea.c
+// $ echo "cat/ncow/ndog" > animal
+// $ echo "walk/nrun/ndance" > activity
+// $ ./idea animal activity
+// cow
+// dance
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <time.h>
+#include <assert.h>
+
+int count_lines(int fd) {
+    int n = 0;
+    char buf[1];
+    int r = read(fd, buf, 1);
+    while (r > 0) {
+        if (buf[0] == '\n') {
+            n++;
+        }
+        r = read(fd, buf, 1);
+    }
+    return n;
+}
+
+void print_line(int fd, int i) {
+    char buf[1];
+    int r = read(fd, buf, 1);
+    while (r > 0 && i > 0) {
+        if (buf[0] == '\n') {
+            i--;
+        }
+        r = read(fd, buf, 1);
+    }
+    assert(r > 0 && i == 0);
+    while (r > 0 && (buf[0] != '\n')) {
+        write(STDOUT_FILENO, buf, 1);
+        r = read(fd, buf, 1);
+    }
+    write(STDOUT_FILENO, "\n", 1);
+}
+
+int main(int argc, char *argv[]) {
+    if (argc < 2) {
+        printf("usage: %s file-1 file-2 ... file-n\n", argv[0]);
+        return 1;
+    }
+    for (int n = 1; n < argc; n++) {
+        int fd = open(argv[n], O_RDONLY);
+        if (fd == -1) {
+            perror("open");
+            return 1;
+        }
+        int c = count_lines(fd);
+        srandom(getpid());
+        int i = random() % c;
+        lseek(fd, 0, SEEK_SET);
+        print_line(fd, i);
+    }
+    return 0;
+}
