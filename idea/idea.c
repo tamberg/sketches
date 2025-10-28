@@ -5,8 +5,8 @@
 // to generate new combinations
 
 // $ gcc -o idea idea.c
-// $ echo "cat/ncow/ndog" > animal
-// $ echo "walk/nrun/ndance" > activity
+// $ echo "cat\ncow\ndog" > animal
+// $ echo "walk\nrun\ndance" > activity
 // $ ./idea animal activity
 // cow
 // dance
@@ -19,6 +19,8 @@
 #include <assert.h>
 
 int count_lines(int fd) {
+    off_t pos = lseek(fd, 0, SEEK_CUR);    
+    assert(pos == 0);
     int n = 0;
     char buf[1];
     int r = read(fd, buf, 1);
@@ -32,6 +34,8 @@ int count_lines(int fd) {
 }
 
 void print_line(int fd, int i) {
+    off_t pos = lseek(fd, 0, SEEK_CUR);
+    assert(pos == 0);
     char buf[1];
     int r = read(fd, buf, 1);
     while (r > 0 && i > 0) {
