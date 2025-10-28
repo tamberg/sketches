@@ -1,4 +1,4 @@
-// snake - https://x.com/itsfoss2/status/1796244297336914261
+// snake - https://twitter.com/itsfoss2/status/1796244297336914261
 
 // $ gcc -o snake snake.c
 // $ stty -icanon -echo; ./snake
