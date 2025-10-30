@@ -64,8 +64,8 @@ int main(int argc, char *argv[]) {
             return 1;
         }
         int c = count_lines(fd);
-        srandom(getpid());
-        int i = random() % c;
+        srand(getpid());
+        int i = rand() % c;
         lseek(fd, 0, SEEK_SET);
         print_line(fd, i);
     }
