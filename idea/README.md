@@ -1,4 +1,6 @@
 # Idea
+A simple idea generator.
+
 Picks a line each from n files with newline terminated lines to generate new combinations.
 
 ## Basic example
