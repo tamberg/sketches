@@ -1,7 +1,8 @@
-at home
-in the garden
-during sport
-at school
-in industry
-in agriculture
-in a smart city
+at home (house, apartment, room, ...)
+in the garden (outdoor, indoor, ...)
+during sport (biking, swimming, ...)
+when camping (van, tent, ...)
+at school (classroom, hallway, mensa)
+in industry (building, factory floor)
+in agriculture (field, stable, ...)
+in a city (or town, village, ...)
