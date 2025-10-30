@@ -1,16 +1,5 @@
 // licensed under https://tamberg.mit-license.org/
 
-// picks a line each from n files 
-// with newline terminated lines
-// to generate new combinations
-
-// $ gcc -o idea idea.c
-// $ echo "cat\ncow\ndog" > animal
-// $ echo "walk\nrun\ndance" > activity
-// $ ./idea animal activity
-// cow
-// dance
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
