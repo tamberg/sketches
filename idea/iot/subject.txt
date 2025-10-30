@@ -1,4 +1,4 @@
-human (self, neighbour, messenger, ...)
+human (self, neighbour, worker, ...)
 animal (cat, dog, cow, horse, ...)
 plant (tree, flower, crops, ...)
 environment (air, water, soil, ...)
