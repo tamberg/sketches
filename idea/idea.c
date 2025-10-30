@@ -57,6 +57,7 @@ int main(int argc, char *argv[]) {
         printf("usage: %s file-1 file-2 ... file-n\n", argv[0]);
         return 1;
     }
+    srand(getpid());
     for (int n = 1; n < argc; n++) {
         int fd = open(argv[n], O_RDONLY);
         if (fd == -1) {
@@ -64,7 +65,6 @@ int main(int argc, char *argv[]) {
             return 1;
         }
         int c = count_lines(fd);
-        srand(getpid());
         int i = rand() % c;
         lseek(fd, 0, SEEK_SET);
         print_line(fd, i);
