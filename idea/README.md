@@ -4,6 +4,8 @@ A simple idea generator — picks a line each from n files with newline terminat
 ## Build
 ```bash
 $ gcc -o idea idea.c
+$ ./idea
+usage: ./idea file-1 file-2 ... file-n
 ```
 
 ## Basic example
