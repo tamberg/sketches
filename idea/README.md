@@ -21,4 +21,3 @@ $ ls iot
 domain.txt	input.txt	output.txt	subject.txt
 $ ./idea iot/subject.txt iot/input.txt iot/output.txt iot/domain.txt
 ```
-
