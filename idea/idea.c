@@ -45,7 +45,11 @@ int main(int argc, char *argv[]) {
         printf("usage: %s file-1 file-2 ... file-n\n", argv[0]);
         return 1;
     }
+#if __APPLE__
+    srandom(getpid());
+#else
     srand(getpid());
+#endif
     for (int n = 1; n < argc; n++) {
         int fd = open(argv[n], O_RDONLY);
         if (fd == -1) {
@@ -53,7 +57,11 @@ int main(int argc, char *argv[]) {
             return 1;
         }
         int c = count_lines(fd);
+#if __APPLE__
+        int i = random() %c;
+#else
         int i = rand() % c;
+#endif
         lseek(fd, 0, SEEK_SET);
         print_line(fd, i);
     }
