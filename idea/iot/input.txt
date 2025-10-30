@@ -1,5 +1,6 @@
 input (button, switch, ...)
 presence (PIR sensor, ultrasonic sensor)
+location (GPS module, BLE beacon scanner)
 distance (ultrasonic sensor, tof-sensor)
 tilt (tilt sensor, accelerometer)
 vibration (vibration sensor)
