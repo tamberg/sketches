@@ -8,9 +8,9 @@ $ gcc -o idea idea.c
 
 ## Basic example
 ```bash
-$ echo "cat\ncow\ndog" > animal
-$ echo "walk\nrun\ndance" > activity
-$ ./idea animal activity
+$ echo "cat\ncow\ndog" > animal.txt
+$ echo "walk\nrun\ndance" > activity.txt
+$ ./idea animal.txt activity.txt
 cow
 dance
 ```
