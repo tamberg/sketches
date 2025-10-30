@@ -57,7 +57,7 @@ int main(int argc, char *argv[]) {
         printf("usage: %s file-1 file-2 ... file-n\n", argv[0]);
         return 1;
     }
-    srand(getpid());
+    srand(time(NULL));
     for (int n = 1; n < argc; n++) {
         int fd = open(argv[n], O_RDONLY);
         if (fd == -1) {
