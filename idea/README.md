@@ -1,7 +1,5 @@
 # Idea
-A simple idea generator.
-
-Picks a line each from n files with newline terminated lines to generate new combinations.
+A simple idea generator — picks a line each from n files with newline terminated lines to generate new combinations.
 
 ## Basic example
 ```bash
