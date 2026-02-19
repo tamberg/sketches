@@ -21,7 +21,8 @@ int main(int argc, char *argv[]) {
     int fd = open(argv[1], O_RDONLY);
     if (fd == -1) { perror("open"); exit(-1); }
     struct winsize ws;
-    ioctl(STDOUT_FILENO, TIOCGWINSZ, &ws);
+    int res = ioctl(STDOUT_FILENO, TIOCGWINSZ, &ws);
+    if (res == -1) { perror("ioctl"); exit(-1); }
     int n = ws.ws_row - 1;
     int i = 0;
     int s = 0;
@@ -58,5 +59,5 @@ int main(int argc, char *argv[]) {
         write(STDOUT_FILENO, buf, 1);
         r = read(fd, buf, 1);
     }
-    if (r == -1) { perror("read"); exit(-1);  }
+    if (r == -1) { perror("read"); exit(-1); }
 }
