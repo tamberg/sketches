@@ -37,13 +37,10 @@ int main(int argc, char *argv[]) {
             if (buf[0] == '\n') {
                 i++;
                 s = 2;
-            } else {
-                s = 1;
             }
         } else if (s == 2) {
             if (buf[0] == '\n') {
                 i++;
-                s = 2;
             } else if (buf[0] == '+') {
                 while (i % n != 0) {
                     nanosleep(&ts, NULL);
