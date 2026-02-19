@@ -11,13 +11,13 @@ int main(int argc, char *argv[]) {
         printf("usage: %s file [dt]\n\n", argv[0]);
         printf("Step through a file with slide content,\n");
         printf("separated by '+', ENTER for next slide,\n"); 
-        printf("dt > 0, e.g. 10 for slow typing effect,\n");
+        printf("optional 0 < dt <= 999 for slow typing,\n");
         printf("adapt terminal size to fit the content.\n");
         exit(-1);
     } else if (argc == 3) {
         dt = atoi(argv[2]);
     }
-    struct timespec ts = {0, dt * 1000000};
+    struct timespec ts = {0, (dt % 1000) * 1000000};
     int fd = open(argv[1], O_RDONLY);
     if (fd == -1) { perror("open"); exit(-1); }
     struct winsize ws;
